@@ -1,6 +1,6 @@
-name: 'ghidd'
+name: 'GitHub Issue Duplicate Detector'
 author: '01x4-dev'
-description: 'A GitHub Action to detect and triage duplicated issues'
+description: 'AI-powered action to detect and triage duplicated GitHub issues'
 inputs:
   mode:
     description: 'Operating mode. `all` or `new` respectively for cross checking all existing issues or just newly created issue for duplicates'
