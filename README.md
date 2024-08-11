@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run public action
-        uses: 01x4-dev/ghidd@latest
+        uses: 01x4-dev/ghidd@v0
         id: run-action
         with:
           mode: 'new'
