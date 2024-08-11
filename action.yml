@@ -1,0 +1,29 @@
+name: 'ghidd'
+author: '01x4-dev'
+description: 'A GitHub Action to detect and triage duplicated issues'
+inputs:
+  mode:
+    description: 'Operating mode. `all` or `new` respectively for cross checking all existing issues or just newly created issue for duplicates'
+    required: true
+    default: 'new'
+  duplCmtH:
+    description: 'Header to identify bot comment of duplicate issue found'
+    required: false
+    default: |
+      > [!WARNING]
+      > :robot: **_duplicate issue detected_** :robot:
+  duplLabel:
+    description: 'Repo label to tag duplicate issues with, described as JSON string following GitHub API specs'
+    required: false
+    default: '{ "name": "duplicate", "description": "This issue or pull request already exists", "color": "d93f0b" }'
+outputs:
+  duplicates-found:
+    description: 'Duplicates found while checking'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.mode }}
+branding:
+  icon: 'copy'
+  color: 'green'

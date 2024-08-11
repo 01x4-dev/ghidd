@@ -1,0 +1,51 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+template: |
+  # Changelog
+  $CHANGES
+
+  See details of [all code changes](https://github.com/01x4-dev/ghidd/compare/$PREVIOUS_TAG...v$RESOLVED_VERSION) since previous release
+
+categories:
+  - title: '🚀 Features'
+    labels:
+      - 'new-feature'
+      - 'enhancement'
+  - title: '🐛 Bug Fixes'
+    labels:
+      - 'bug'
+  - title: '🧰 Maintenance'
+    labels:
+      - 'documentation'
+      - 'dev-env'
+  - title: '🏎 Performance'
+    label: 'performance'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+      - 'new-feature'
+      - 'enhancement'
+  patch:
+    labels:
+      - 'bug'
+      - 'documentation'
+      - 'dev-env'
+  default: patch
+autolabeler:
+  - label: 'documentation'
+    title:
+      - '/^(docs).*/i'
+  - label: 'new-feature'
+    title:
+      - '/^(feat).*/i'
+  - label: 'bug'
+    title:
+      - '/^(fix).*/i'
+  - label: 'dev-env'
+    title:
+      - '/^(infra).*/i'
